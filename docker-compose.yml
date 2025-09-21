@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  bot:
+    container_name: "quiz_bot"
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env
