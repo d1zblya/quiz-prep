@@ -1,11 +1,15 @@
 FROM python:3.12.5-slim
 LABEL authors="d1z"
 
-WORKDIR /app
+WORKDIR /quiz_prep
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN python -m venv /quiz_prep/venv
+ENV PATH="/quiz_prep/venv/bin:$PATH"
 
-COPY . .
+COPY requirements.txt /quiz_prep
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
 
-CMD ["python3", "-m", "src.main"]
+COPY src ./src
+
+CMD ["python", "-m", "src.main"]
