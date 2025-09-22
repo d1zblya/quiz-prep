@@ -1,8 +1,8 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class QuestionSchema(BaseModel):
-    id: int
+    id: int | None = Field(None)
     question: str
     answer: int
     doc_name: str
