@@ -1,8 +1,12 @@
-import os
-
 from dotenv import load_dotenv
+from pydantic_settings import BaseSettings
 
 load_dotenv()
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-DATABASE_URL = os.getenv("DATABASE_URL")
+
+class Settings(BaseSettings):
+    BOT_TOKEN: str
+    DATABASE_URL: str = "sqlite:///src/database/questionnaire.db"
+
+
+settings = Settings()

@@ -3,7 +3,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.types import BotCommand
 
-from src.config import settings
+from src.config.settings import settings
 
 
 async def set_default_commands(bot: Bot) -> None:
