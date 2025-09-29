@@ -95,3 +95,4 @@ __pycache__/
 *.db
 *.sqlite3
 .git/
+tests/

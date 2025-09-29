@@ -3,11 +3,15 @@ from src.schemes.schema_user_answers import UserAnswerSchema
 
 
 def get_question_text(question: QuestionSchema, question_number: int) -> str:
+    if not isinstance(question_number, int):
+        raise TypeError("Question number must be an integer")
     text = f"Вопрос номер {question_number}\n\n{question.question}"
     return text
 
 
 def get_final_text(user_answers: list[UserAnswerSchema], correct_answers: int) -> str:
+    if not isinstance(correct_answers, int):
+        raise TypeError("Correct answers must be an integer")
     total_questions = len(user_answers)
 
     text = f"Всего вопросов: {total_questions}\n\nСтатистика:\n"
